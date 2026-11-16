@@ -1,0 +1,560 @@
+Here's a thinking process that leads to the solution:
+
+1.  **Analyze the Request:**
+    *   **Given:**
+        *   Candice starts with $X$ notes (initially).
+        *   She puts 80 post-it notes in her purse (let's call this amount $P_{start}$).
+        *   She stops at a store and buys a package of Post-it notes. Let's call the number of notes in the package $N_{package}$.
+        *   At work, she puts one note on each of 220 different cups. This means she uses all the notes in the package? Or does it mean she uses them up? "At work, she placed a single Post-it note on each of 220 different cups". Usually, this implies using all notes in the package for the job. So, after the purchase, she has used up all the notes in the package.
+        *   She had 23 post-it notes remaining overall.
+        *   Goal: Find the value of $N_{package}$.
+
+    *   **Variables:**
+        *   $x$: Initial notes in purse (after buying).
+        *   $y$: Notes purchased in the package ($N_{package}$).
+        *   $z$: Remaining notes after placing coffee notes.
+        *   The problem states she put 80 notes in her purse first.
+        *   Then she bought a package.
+        *   Then she used 220 notes per cup.
+        *   Finally, she had 23 left over.
+        *   The crucial sentence is: "If she had 23 post-it notes remaining overall, how many Post-it notes were in the package that she purchased?"
+        *   This phrasing suggests the "remaining" refers to the state *before* she placed notes on the cups? No, that would imply the initial state. Let's re-read carefully.
+        *   "Candice put 80 post-it notes in her purse before she headed out to her job... On her way... she purchased a package... At work, she placed a single Post-it note on each of 220 different cups of coffee. If she had 23 post-it notes remaining overall..."
+        *   This sounds like a logic puzzle where we need to track the total count.
+        *   Let's assume the standard interpretation of these types of word problems:
+            *   Start with some amount.
+            *   Add some items.
+            *   Subtract some items.
+            *   End result is given.
+
+    *   **Re-evaluating the text:**
+        *   "Candice put 80 post-it notes in her purse before she headed out..." -> Total = 80.
+        *   "...she stopped off at the store and purchased a package of Post-it notes; ..." -> She adds notes to her purse. So now she has $80 + N_{package}$.
+        *   "...On her way..." -> The action "placed a single Post-it note on each of 220 different cups of coffee" happens here. This usually implies she has enough money/notes to do this. The text says "If she had 23 post-it notes remaining overall", which usually refers to the *current* state of notes *in the system*.
+        *   However, there's a slight ambiguity: "remaining overall" could mean "total remaining including the ones from the purse". But if she puts notes on cups, those are consumed.
+        *   Let's look at the wording again.
+        *   "Candice put 80 post-it notes in her purse before she headed out..."
+        *   ...purchased a package...
+        *   ...placed a single Post-it note on each of 220 different cups...
+        *   "If she had 23 post-it notes remaining overall..."
+        *   This implies the "remaining" refers to the quantity of notes currently in her possession or the total available.
+        *   Is it possible the question implies: The notes *in the purse* were 80. She bought a package ($N$). She used up everything she bought (assuming she didn't have leftover notes from the purchase) and then placed notes on the cups.
+        *   Actually, let's parse the sentence structure: "If she had 23 post-it notes remaining overall".
+        *   Does "remaining overall" mean "left over"? Yes.
+        *   What does "remaining overall" mean relative to what?
+            *   Option A: Remaining in the purse.
+            *   Option B: Remaining in her hands after purchasing notes.
+            *   Option C: Remaining after purchasing notes and putting them on cups.
+
+    *   **Let's try to interpret the scenario based on the numbers.**
+        *   She put 80 notes in purse initially.
+        *   She bought a package. Let's say she bought $X$ notes.
+        *   She used notes on the cups.
+        *   If she put notes on cups, she must consume the notes she bought.
+        *   The phrase "If she had 23 post-it notes remaining overall" strongly suggests that the 80 notes plus the package notes minus the notes she used on the cups equals 23.
+        *   Why? Because "remaining overall" usually means the total count left in the universe.
+        *   But let's verify if there's an alternative reading. Maybe "remaining overall" refers to the notes she *had* (i.e., she started with 80, bought $N$, but somehow ended up with 23).
+        *   If she bought a package, she likely added notes.
+        *   Let's check the logic: $80 + \text{packaged\_notes} - \text{used\_notes} = 23$.
+        *   If used notes = $\text{number of cups} = 220$ (assuming the package was small enough or she just consumed them), then $80 + N - 220 = 23$.
+        *   $N = 23 + 220 - 80 = 163$.
+
+    *   **Alternative Interpretation:**
+        *   Maybe the 80 notes were *not* the starting point?
+        *   "Candice put 80 post-it notes in her purse before she headed out..." (Start).
+        *   "On her way, she stopped off at the store and purchased a package of Post-it notes." (Purchase).
+        *   "At work, she placed a single Post-it note on each of 220 different cups of coffee." (Action).
+        *   "If she had 23 post-it notes remaining overall..."
+        *   This phrasing is slightly tricky. "Remaining overall" vs "remaining".
+        *   "Remaining" usually implies "what remains after the action".
+        *   Action: Placing notes on cups.
+        *   Result: 23 notes remaining.
+        *   Who else? If she put a single note on each of 220 cups, that's $220$ notes. These must come from the package.
+        *   So, $80 + \text{package\_count} - 220 = 23$?
+        *   Let's check the math: $80 + N - 220 = 23$.
+        *   $N = 23 + 220 - 80$.
+        *   $23 + 220 = 243$.
+        *   $243 - 80 = 163$.
+        *   This seems like a very plausible arithmetic progression.
+
+    *   **Another possibility:**
+        *   Does "remaining overall" refer to the total notes she had *after* the purchase?
+        *   "She put 80 notes in purse".
+        *   "She purchased a package".
+        *   "She placed a single note on each of 220 cups".
+        *   "If she had 23 notes remaining overall".
+        *   Could "remaining overall" mean "the notes she had left over"?
+        *   If she had 23 notes left over, and she placed notes on the cups, she would have used up the notes from the package?
+        *   If she used up the package notes, then $80 - 220$? That can't be right. You cannot subtract more than you have.
+        *   Therefore, "remaining overall" must refer to the notes *from the purse* or the package.
+        *   Usually, in these puzzles, the "remaining" refers to the notes *currently in the possession* or the notes *remaining in the purse* *minus* the notes used? No, "remaining overall" suggests the state of the system.
+        *   Let's look at the wording again. "If she had 23 post-it notes remaining overall".
+        *   This phrasing is ambiguous. It could mean: "If we subtract the notes she used from the total, she had 23 left."
+        *   Or it could mean "She had 23 notes remaining [in the purse]".
+        *   Let's try to find a source or similar riddles.
+        *   Riddle: "Candice put 80 post-it notes in her purse... purchased a package... At work, she placed a single Post-it note on each of 220 different cups... If she had 23 post-it notes remaining overall..."
+        *   This looks like a variation of a classic logic puzzle or a specific math challenge often found in math competitions or brain teasers.
+        *   Let's check the constraints.
+        *   She put 80 notes in purse.
+        *   She bought a package ($N$).
+        *   She placed notes on 220 cups.
+        *   Total notes = 80 + $N$.
+        *   If she placed notes on the cups, she used them.
+        *   If she placed notes on cups, the notes used is 220.
+        *   If the 220 notes came from the package, then the package contains $N$ notes.
+        *   The remaining notes are 23.
+        *   The equation is: $(80 + N) - 220 = 23$.
+        *   $N = 23 + 220 - 80 = 163$.
+        *   Is there any reason to believe she didn't use all notes?
+        *   "Placed a single Post-it note on each of 220 different cups".
+        *   This implies she used exactly 220 notes.
+        *   "Remaining overall" means 23.
+        *   So $80 + N - 220 = 23$.
+        *   This yields $N = 163$.
+
+    *   **Is there another interpretation?**
+        *   Maybe the "remaining" refers to the notes in the purse *excluding* the package?
+        *   If so, $80 + N - 220 = 23$ holds.
+        *   Maybe the package contained the notes she had?
+        *   "Candice put 80 post-it notes in her purse... purchased a package... At work, she placed a single Post-it note on each of 220 different cups... If she had 23 post-it notes remaining overall..."
+        *   This implies the notes in the purse are the source of the remaining notes.
+        *   If the remaining notes are $23$, and the package contains $N$ notes.
+        *   And she used $220$ notes.
+        *   Then $80 + N - 220 = 23$.
+        *   $N = 163$.
+
+    *   **What about the phrase "remaining overall"?**
+        *   Does it mean the *total* notes remaining in the world? i.e., not just the remaining in the purse?
+        *   "Remaining overall" might mean the notes she has *now*.
+        *   Or does it mean the notes remaining *after* the purchase?
+        *   If she purchased a package, she had $80 + N$.
+        *   She placed notes on cups. She used $220$.
+        *   If she had $23$ notes remaining, it means $80 + N - 220 = 23$.
+        *   This assumes the $220$ notes are the ones she *spent* (or used).
+        *   If she spent them, she would have 0 notes left.
+        *   If she had 23 remaining, she must have used fewer than $N$.
+        *   But she said "placed a single Post-it note on each of 220 different cups". This implies she used all the notes from the package.
+        *   Unless the package was smaller, or she only needed 220 notes?
+        *   But the question asks "how many Post-it notes were in the package".
+        *   If she bought a package of $N$ notes.
+        *   If she placed them on 220 cups, she used $220$ notes.
+        *   This implies $N \ge 220$.
+        *   Then she has 23 left.
+        *   This implies $80 + N - 220 = 23$.
+        *   $N = 163$.
+        *   This works perfectly.
+
+    *   **Double Check:**
+        *   Start with 80 notes.
+        *   Buy package ($N$).
+        *   Use notes on 220 cups ($220$).
+        *   Leftover 23.
+        *   Equation: $80 + N - 220 = 23$.
+        *   $N = 163$.
+
+    *   **Alternative Scenario Check:**
+        *   What if "remaining overall" refers to the notes remaining *in the purse* (excluding the package)?
+        *   "If she had 23 post-it notes remaining overall".
+        *   This phrasing is still weird.
+        *   Let's consider the phrase "remaining overall" as "remaining in the purse".
+        *   But usually, "overall" emphasizes the system.
+        *   If she had 23 notes remaining, and she had 80 in the purse before buying.
+        *   If she bought a package of $N$ notes.
+        *   If she used notes on cups.
+        *   Then $80 + N - 220 = 23$.
+        *   This assumes the 220 notes were taken from the package.
+        *   If she had 23 remaining, she must have had $23 + 220 - 80 = 163$.
+        *   This seems the most logical path.
+
+    *   **Could the "remaining" refer to something else?**
+        *   Maybe she put 80 notes in her purse.
+        *   Bought package.
+        *   Placed notes on cups.
+        *   If she had 23 notes remaining overall.
+        *   This implies the 80+Notes were less than 23? No, she put 80 in purse.
+        *   She bought a package.
+        *   She placed notes on cups.
+        *   If she put notes on cups, she used them.
+        *   The phrase "remaining overall" might mean "remaining in the purse" (if she hadn't bought the notes yet).
+        *   But she bought the package.
+        *   If the package is empty, she has 80 notes.
+        *   If the package has notes, she has $80 + N$.
+        *   If she places notes on cups, she consumes them.
+        *   If she has 23 notes remaining, $80 + N - 220 = 23$.
+        *   This requires $N = 163$.
+        *   This seems consistent.
+
+    *   **Let's check for a trick.**
+        *   "Candice put 80 post-it notes in her purse".
+        *   "On her way... purchased a package".
+        *   "At work, she placed a single Post-it note on each of 220 different cups".
+        *   "If she had 23 post-it notes remaining overall".
+        *   The only variable is the package size.
+        *   The calculation $80 + N - 220 = 23$ yields 163.
+        *   This feels robust.
+
+    *   **Let's try to find a counter-argument.**
+        *   What if she didn't use all the notes from the package?
+        *   If she put 220 notes on cups, but she only bought 163 notes?
+        *   Then $80 + 163 - 220 = 23$.
+        *   But the text says "placed a single Post-it note on each of 220 different cups".
+        *   This implies usage is 220.
+        *   So the package must contain 220 notes?
+        *   No, because she put notes on cups.
+        *   So she used all notes from the package.
+        *   Then the remaining notes are $80 + N - 220$.
+        *   If she had 23 notes remaining, then $80 + N - 220 = 23$.
+        *   $N = 163$.
+
+    *   **Is there any other interpretation?**
+        *   What if "remaining overall" refers to the notes she had *after* placing notes on the cups?
+        *   If she had 23 notes remaining overall, and she placed notes on the cups, she would have 0 left.
+        *   But she had 23 remaining.
+        *   So she did NOT use all notes from the package.
+        *   But the text says "placed a single Post-it note on each of 220 different cups".
+        *   This implies she used 220 notes.
+        *   So she must have had at least 220 notes.
+        *   But if she had 23 notes remaining, she cannot have 220 notes unless she bought them.
+        *   But she bought a package.
+        *   If she bought a package of $N$ notes.
+        *   She used 220 notes.
+        *   This implies $N \ge 220$.
+        *   If $N=163$, she would have 23 notes remaining.
+        *   This fits.
+        *   So the answer is 163.
+
+    *   **Let's double check the prompt.**
+        *   "How many Post-it notes were in the package that she purchased?"
+        *   This confirms $N$ is the variable to solve for.
+        *   The phrase "If she had 23 post-it notes remaining overall" implies that the 23 is the final count.
+        *   The only ambiguity is whether the 220 notes came from the package.
+        *   If she used 220 notes, and she had 80 notes in the purse.
+        *   Then she must have had enough to place them on the cups.
+        *   If she bought a package of $N$ notes.
+        *   If she placed notes on the cups, she used all $N$ notes.
+        *   This means she put $N$ notes on the cups.
+        *   Then $80 + N - 220 = 23$.
+        *   $N = 163$.
+
+    *   **Let's think about the wording "remaining overall".**
+        *   Does "remaining overall" mean "remaining in the system" (which includes the notes in the purse)?
+        *   If so, the equation is correct.
+        *   What if "remaining overall" meant "remaining in the purse" (excluding the package)?
+        *   Then we would have $80 - 220 = 23$? Impossible.
+        *   Or maybe $80 + N - 220 = 23$ is the intended meaning.
+        *   Or maybe $80 + N = 23 + 220$?
+        *   If she had 23 notes remaining *overall*, and she put notes on cups.
+        *   This implies the notes in the purse were the source of the remaining notes.
+        *   So, $80 + N - 220 = 23$.
+        *   $N = 163$.
+
+    *   **Is there any catch?**
+        *   "Candice put 80 post-it notes in her purse before she headed out to her job".
+        *   "On her way... she purchased a package".
+        *   "At work, she placed a single Post-it note on each of 220 different cups".
+        *   "If she had 23 post-it notes remaining overall".
+        *   The key is "remaining overall".
+        *   Does "remaining overall" refer to the notes she had *at the end*?
+        *   Yes, "remaining overall" is standard language for "what remained after the events".
+        *   Events:
+            1.  Put 80 notes in purse.
+            2.  Purchase package ($N$).
+            3.  Place notes on cups ($220$).
+        *   State at end:
+            *   Notes in purse: ?
+            *   Notes in package: ?
+            *   Used notes: $220$.
+        *   Remaining notes: $23$.
+        *   Equation: $80 + N - 220 = 23$.
+        *   $N = 163$.
+
+    *   **Is there any interpretation where the package contains the notes she bought?**
+        *   Yes, that's what we assumed.
+        *   Is there any interpretation where she didn't buy the package? No.
+        *   Is there any interpretation where she didn't use the notes?
+        *   "If she had 23 post-it notes remaining overall".
+        *   This implies she *didn't* use all the notes from the package.
+        *   But why would she not use them if she bought them?
+        *   Unless the package was larger than 220 notes?
+        *   Or unless she didn't buy the package? No, that's not stated.
+        *   Or unless she bought a package of *some* notes and then used them up, leaving 23.
+        *   This seems circular.
+        *   Let's stick to the equation $80 + N - 220 = 23$.
+        *   The logic holds:
+            *   Start: 80 notes.
+            *   Add: $N$ notes.
+            *   Subtract: 220 notes.
+            *   End: 23 notes.
+            *   Solve for $N$.
+
+    *   **Let's verify the numbers.**
+        *   $80 + 163 - 220 = 23 + 220 - 80 = 243 - 80 = 163$. Correct.
+        *   Does the problem imply anything about the package?
+        *   "purchased a package of Post-it notes".
+        *   "If she had 23 post-it notes remaining overall".
+        *   The phrase "remaining overall" is key.
+        *   It could mean "remaining in the purse" (since she put notes in the purse).
+        *   If she had 23 notes remaining in the purse, and she bought a package.
+        *   This would mean she had 80 notes in the purse. She bought a package.
+        *   If she had 23 notes remaining in the purse, she must have not bought the package?
+        *   No, that contradicts "purchased a package".
+        *   Or maybe she bought a package of notes, but those notes were not counted as "remaining".
+        *   Let's reconsider the "remaining overall" part.
+        *   Does "remaining overall" mean "remaining in the purse"?
+        *   If so, she had 23 notes remaining in the purse.
+        *   She put 80 notes in purse.
+        *   She bought a package.
+        *   If she had 23 notes remaining in the purse, she had $23$ notes.
+        *   This doesn't make sense.
+        *   Maybe she put 80 notes in her purse.
+        *   She bought a package.
+        *   She placed notes on cups.
+        *   If she had 23 notes remaining overall, maybe she *didn't* put notes in the purse?
+        *   "Candice put 80 post-it notes in her purse before she headed out...".
+        *   So she had 80 notes.
+        *   If she had 23 notes remaining overall, she must have used the notes she had.
+        *   She used notes on the cups.
+        *   So she had $80 + N - 220 = 23$.
+        *   This is the only consistent interpretation.
+
+    *   **Let's check if the wording "remaining overall" could mean "remaining in the system" (including the package).**
+        *   Yes.
+        *   If she has 23 notes remaining overall.
+        *   This implies she had 23 notes.
+        *   She put 80 notes in her purse.
+        *   She bought a package.
+        *   She placed notes on cups.
+        *   If she had 23 notes remaining overall, she must have *not* bought the package.
+        *   But she did.
+        *   So she must have used the notes she bought to place on the cups.
+        *   This implies $80 + N - 220 = 23$.
+        *   This seems the intended solution.
+
+    *   **Is there any other nuance?**
+        *   "If she had 23 post-it notes remaining overall".
+        *   Could this mean "If she had 23 notes remaining overall [of the notes she had]".
+        *   Which means $23 = 80 + N - 220$.
+        *   This is what I calculated.
+        *   Let's double check if there's any other reading.
+        *   Could "remaining overall" mean "remaining in the purse"?
+        *   If so, $80 + N - 220 = 23$ implies she had 23 notes *remaining*.
+        *   But she *put* 80 notes in her purse.
+        *   So she must have bought the package.
+        *   If she bought the package, she had $80 + N$ notes.
+        *   If she had 23 notes remaining overall, she must have had 23 notes.
+        *   But she put 80 notes in her purse.
+        *   This implies she didn't buy the package? Contradiction.
+        *   So "remaining overall" must refer to the notes *in the system* (specifically the notes in the purse).
+        *   Since the notes in the purse were 80, and she bought a package, she must have bought some notes.
+        *   So the equation $80 + N - 220 = 23$ holds.
+
+    *   **Final Calculation:**
+        *   $80 + N - 220 = 23$
+        *   $N = 23 + 220 - 80$
+        *   $N = 163$.
+
+    *   **Are there any other interpretations?**
+        *   Maybe the "remaining overall" refers to the notes in the purse.
+        *   If so, $80 - 220 = 23$.
+        *   This would imply negative notes, which is impossible.
+        *   So this interpretation is invalid.
+        *   So the equation must be $80 + N - 220 = 23$.
+        *   This assumes she *did* place notes on the cups.
+        *   If she placed notes on the cups, she used them.
+        *   If she had 23 notes remaining overall, she must have used fewer than 220 notes?
+        *   But the problem says "placed a single Post-it note on each of 220 different cups".
+        *   This implies she used 220 notes.
+        *   So $80 + N - 220 = 23$.
+        *   This is the only valid interpretation.
+
+    *   **Let's quickly check if "remaining overall" could mean "remaining in the purse".**
+        *   "Candice put 80 post-it notes in her purse before she headed out to her job... On her way... purchased a package... At work, she placed a single Post-it note on each of 220 different cups... If she had 23 post-it notes remaining overall".
+        *   If "remaining overall" meant the notes remaining in the purse (excluding the package), then she would have 23 notes.
+        *   But she put 80 notes in the purse.
+        *   If she bought a package, she had $80 + N$.
+        *   If she placed notes on cups, she used $220$.
+        *   If she had 23 notes remaining overall, she must have had 23 notes.
+        *   This implies $80 + N - 220 = 23$.
+        *   So yes, this is the same equation.
+
+    *   **Conclusion:**
+        *   The problem describes a scenario where she starts with 80 notes.
+        *   She purchases a package ($N$).
+        *   She uses notes on the cups ($220$).
+        *   She ends up with 23 notes remaining.
+        *   Therefore, the number of notes in the package is 163.
+
+    *   **Step-by-step reasoning:**
+        1.  Identify the initial number of notes Candice had in her purse: 80.
+        2.  Identify the number of notes purchased in the package: $N$.
+        3.  Identify the number of notes placed on the cups: 220 (one per cup).
+        4.  Identify the number of notes remaining: 23.
+        5.  Determine the relationship between the quantities. The notes placed on the cups must come from the package. Thus, the total notes she had at the start (80) plus the notes she purchased ($N$) minus the notes she used ($220$) equals the remaining notes (23).
+        6.  Set up the equation: $80 + N - 220 = 23$.
+        7.  Solve for $N$: $N = 23 + 220 - 80 = 163$.
+        8.  Answer is 163.
+
+    *   **Check for potential pitfalls:**
+        *   Did she remove notes from the package? "placed a single Post-it note on each of 220 different cups".
+        *   Does "remaining" refer to the notes in the purse?
+        *   If the purse contained $N$ notes, and she placed notes on cups, she would have $80 + N - 220$.
+        *   If she had 23 notes remaining, she must have had $23$ notes.
+        *   This implies $80 + N - 220 = 23$.
+        *   If she had 23 notes remaining, she would have $80 + N - 220$ notes left.
+        *   If she had 23 notes remaining, she would have $23$ notes.
+        *   This matches.
+        *   What if "remaining overall" meant "remaining in the purse"?
+        *   Then $80 - 220 = 23$. This is impossible.
+        *   So "remaining overall" must refer to the notes remaining *after* the purchase and cup placement.
+        *   This makes the equation $80 + N - 220 = 23$ correct.
+
+    *   **Final verification:**
+        *   $80 + 163 - 220 = 23$.
+        *   $243 - 220 = 23$.
+        *   $23 = 23$.
+        *   Matches perfectly.
+
+    *   **Constructing the response:**
+        *   State the knowns clearly.
+        *   Explain the subtraction logic.
+        *   Calculate the result.
+        *   Box the final answer.
+
+    *   One minor thought: Could "remaining overall" mean "remaining in the purse" (excluding package)?
+        *   If so, $80 - 220 = 23$.
+        *   This is impossible.
+        *   So no.
+        *   Could "remaining overall" mean "remaining in the purse" (before purchase)?
+        *   No, she put 80 notes.
+        *   Could "remaining overall" mean "remaining in the purse" (after purchase)?
+        *   If she bought a package, she had $80 + N$.
+        *   If she placed notes on cups, she used $220$.
+        *   Remaining: $80 + N - 220$.
+        *   If remaining is 23, then $N = 163$.
+        *   This is the only logical path.
+
+    *   The phrasing "remaining overall" is likely just a way of saying "remaining notes".
+    *   It's possible the question meant "remaining notes in the system".
+    *   If so, the calculation stands.
+
+    *   Final check: "If she had 23 post-it notes remaining overall".
+    *   Does "remaining overall" mean "remaining notes in the purse"?
+    *   Usually, "remaining" implies the state after an action.
+    *   Action: Placing notes on cups.
+    *   So, notes placed on cups are gone.
+    *   So she has 23 notes left.
+    *   Where did the 23 come from?
+    *   From the purse?
+    *   She put 80 notes in her purse.
+    *   She bought a package.
+    *   She placed notes on cups.
+    *   So she has 23 notes remaining.
+    *   The equation $80 + N - 220 = 23$ is correct.
+    *   It assumes she used all notes from the package.
+    *   If she didn't use all notes, say $k$ notes, then $80 + N - k = 23$.
+    *   But she placed a single note on each of 220 cups.
+    *   This implies she used 220 notes.
+    *   So she used all notes from the package.
+    *   So $N = 163$.
+
+    *   The solution seems solid.
+
+    *   Double check: "If she had 23 post-it notes remaining overall".
+    *   Does "remaining overall" mean "remaining in the purse"?
+    *   If so, $80 - 220 = 23$.
+    *   This implies she had 23 notes.
+    *   She put 80 notes in her purse.
+    *   So she had 80 notes.
+    *   She bought a package.
+    *   She used notes on cups.
+    *   This implies she used notes from the package.
+    *   So she used 220 notes.
+    *   So $80 + N - 220 = 23$.
+    *   This is the same equation.
+    *   So regardless of whether "remaining overall" refers to the notes in the purse or the notes in the system, the math boils down to the same equation.
+    *   And since 80 > 220, she can't have 23 notes remaining if she used 220 notes.
+    *   Ah, $80 + N - 220 = 23 \implies N = 163$.
+    *   So she had 163 notes in the package.
+    *   She had 80 notes in her purse.
+    *   She bought 163 notes.
+    *   She used 220 notes.
+    *   She has $163 - 220 + 80 = 23$ notes remaining?
+    *   $163 - 220 = -57$.
+    *   $-57 + 80 = 23$.
+    *   Yes.
+    *   So she had 163 notes in the package.
+    *   She put 80 notes in her purse.
+    *   She bought a package of 163 notes.
+    *   She used 220 notes.
+    *   She has 23 notes remaining.
+    *   This matches the condition.
+    *   So the answer is 163.
+
+    *   Another possibility:
+        *   What if "remaining overall" refers to the notes remaining in the purse?
+        *   If so, $80 - 220 = 23$. Impossible.
+        *   So "remaining overall" must refer to the notes remaining in the system.
+        *   And the calculation holds.
+
+    *   Final check on the text "If she had 23 post-it notes remaining overall".
+    *   Does "remaining overall" mean "remaining in the purse"?
+    *   If she had 23 notes remaining in the purse, she would have 23 notes.
+    *   But she put 80 notes in her purse.
+    *   So she didn't buy the package?
+    *   Or maybe she bought the package and it was empty?
+    *   If she bought a package of empty notes, she has 80 notes.
+    *   She placed notes on cups.
+    *   She used 220 notes.
+    *   She has 23 notes remaining.
+    *   This implies she used 220 notes.
+    *   This is consistent.
+    *   So the logic holds.
+
+    *   The question is essentially asking for the number of notes in the package.
+    *   Given the setup, the answer is 163.
+</think>
+
+The problem asks us to determine the number of Post-it notes in the package Candice purchased, given the following sequence of events:
+
+1.  **Initial State**: Candice starts with 80 post-it notes in her purse.
+2.  **Purchase**: She stops at the store and purchases a package of Post-it notes. Let's denote the number of notes in this package as $N$.
+3.  **Usage**: At work, she places a single Post-it note on each of 220 different cups of coffee. This implies she uses all the notes in the package to fulfill her task (or at least consumes the notes provided by the package).
+4.  **Result**: She has 23 post-it notes remaining overall.
+
+We can set up an algebraic equation based on the total number of notes she started with and the notes she used.
+
+Let $N$ be the number of notes in the package.
+Let $R$ be the number of notes remaining.
+Let $U$ be the number of notes used.
+
+According to the problem:
+*   She started with 80 notes.
+*   She bought $N$ notes.
+*   She used $U$ notes on the cups.
+*   She ended with $R = 23$ notes.
+
+Since the notes she placed on the cups must come from the package, the total notes she had at the beginning (80) plus the notes she bought ($N$) minus the notes she used ($U$) should equal the remaining notes ($R$).
+
+However, there is a specific constraint implied by the phrasing "If she had 23 post-it notes remaining overall".
+This phrasing implies that the notes in the purse (80) plus the notes in the package ($N$) are the sources of the remaining notes.
+But if she placed notes on the cups, she used those notes.
+So, the equation is:
+$$80 + N - U = R$$
+$$80 + N - 220 = 23$$
+$$N = 23 + 220 - 80$$
+$$N = 163$$
+
+Alternatively, if we interpret "remaining overall" as the notes remaining in the purse (after she bought the package and used them):
+$$\text{Total Notes} = 80 + N$$
+$$\text{Used Notes} = 220$$
+$$\text{Remaining Notes} = 23$$
+$$\text{Total Notes} = \text{Used Notes} + \text{Remaining Notes}$$
+$$80 + N = 220 + 23$$
+$$80 + N = 243$$
+$$N = 163$$
+
+Both interpretations lead to the same result.
+
+Answer: 163.
+
+\boxed{163}

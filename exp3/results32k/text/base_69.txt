@@ -1,0 +1,496 @@
+Here's a thinking process that leads to the solution:
+
+1.  **Analyze the Problem:**
+    *   Initial state (at time $t=0$): Bailey has $x$ dollars ($x$).
+    *   Action 1: She receives a weekly allowance of $\$5$.
+    *   Duration: 8 weeks.
+    *   Final state (at end of 8 weeks): Total amount = $\$100$.
+    *   Goal: Find the initial amount ($x$).
+
+2.  **Formulate an Equation:**
+    *   Let $x$ be the starting money.
+    *   The total change in money is equal to the final amount plus the changes over time.
+    *   Total Change = (Initial Money) - (Total Money Received) + (Money Earned) ... wait, let's look at it differently.
+    *   It's easier to think in terms of the *Total* earned from the start.
+    *   Let $W$ be the weekly allowance. Here, $W = 5$.
+    *   Let $n$ be the number of weeks. Here, $n = 8$.
+    *   Let $T$ be the total amount received over the period. Here, $T = 5 \times 8$.
+    *   Let $S$ be the ending balance. Here, $S = 100$.
+    *   The formula is usually: $Amount_{initial} + (Weekly\_Allowance \times Weeks) = Total\_Earned$.
+    *   Alternatively, using a standard "money equation":
+        $Start + Weekly\_Income \times Time = End$.
+    *   Wait, the problem says "receives a weekly allowance". This implies she gets paid *every week*.
+    *   So, Total Income = (Number of weeks) $\times$ (Amount per week).
+    *   Total Income = $8 \times 5 = 40$.
+    *   However, the phrasing "receives a weekly allowance" means she gets $5 each week.
+    *   Is she getting paid for *all* 8 weeks? Yes, "Then she receives a weekly allowance...".
+    *   The phrase "At the end of the 8 weeks" suggests accumulation.
+    *   So, Start + $5 \times 8 = 100$.
+    *   Calculation: $5 \times 8 = 40$.
+    *   Start + 40 = 100.
+    *   Start = $100 - 40$.
+    *   Start = 60.
+
+3.  **Verification/Alternative Interpretations:**
+    *   Could "weekly allowance" mean something else? No, standard interpretation is constant payment.
+    *   Does "start with a certain amount" imply she starts with $0$ and adds money? Yes.
+    *   Does "ends with" mean the sum of all income? No, usually implies the current state.
+    *   Let's check if there's any trick. "Then she receives a weekly allowance... At the end of the 8 weeks".
+    *   If she starts with $X$, and gets $5$ every week for 8 weeks.
+    *   Total added = $40$.
+    *   Total remaining = $100 - 40 = 60$.
+    *   Wait, does she have $100 *remaining* or $100 *total*?
+    *   Usually, "At the end of the 8 weeks, if she has a total of $100" refers to her *current* state or *accumulated* state *before* spending? Or just the accumulated amount?
+    *   Standard math word problem convention: "If you receive a weekly allowance of X for Y weeks, and you end up with Z, what was your starting amount?"
+    *   Mathematically: $Start + (X \times Y) = End$.
+    *   So, $Start + (5 \times 8) = 100$.
+    *   $Start + 40 = 100$.
+    *   $Start = 60$.
+
+    *   *Self-Correction/Sanity Check:* Is it possible the allowance is given *per week*, but she doesn't get it until later? No, "receives a weekly allowance" implies daily or periodic receipt.
+    *   What if she spends some money? The problem doesn't mention spending.
+
+    *   *Wait, is there a nuance?* Sometimes "total of $100" might refer to the "balance after receiving"? Yes.
+    *   If she had $0$, she would need $40$ more. If she had $60$, she would need $0$ more.
+    *   The phrase "if she has a total of $100" sounds like a target condition.
+    *   If she started with $100$, she would receive $40$ less? No, $100 - 40 = 60$.
+    *   So $Start = 60$.
+
+    *   *Let's double check the wording.* "Bailey starts with a certain amount of money." -> $A$.
+    *   "Then she receives a weekly allowance of $5 for 8 weeks." -> $B = 5 \times 8 = 40$.
+    *   "At the end of the 8 weeks, if she has a total of $100" -> $A + B = 100$.
+    *   $A + 40 = 100$.
+    *   $A = 60$.
+
+    *   *Alternative interpretation check:* "total of $100" could mean the *net* change? No, context is finding the starting amount.
+    *   Is it possible the question implies she starts with *less* than $100$? Yes.
+    *   Is it possible "weekly allowance" means she gets paid *once* per week? Yes.
+    *   Does she receive it for 8 weeks? Yes.
+
+    *   What if the question meant "received a weekly allowance *of* 5" meaning she starts with 0 and gets 5?
+    *   Then $100 - (5 \times 8) = 100 - 40 = 60$.
+    *   But the phrasing "receives a weekly allowance... Then she has a total of 100" strongly implies the calculation $Start + (Income \times Duration) = End$.
+
+    *   Let's consider if "receives" implies she earns it.
+    *   If she starts with 0, she gets $5 \times 8 = 40$. If she has a total of 100, then she must have had 60 before.
+    *   If she starts with 60, she gets 40. Total spent on allowance? No, allowance is income.
+    *   Wait, usually these problems are framed as: "She has $x$. She gets $y$ every week for $n$ weeks. Her total savings at end is $z$."
+    *   $x + ny = z$.
+    *   Here $x$ is unknown.
+    *   $5 \times 8 = 40$.
+    *   $x + 40 = 100$.
+    *   $x = 60$.
+
+    *   Let's check if I misread "receives a weekly allowance of $5 for 8 weeks".
+    *   Maybe "for 8 weeks" means "after 8 weeks"?
+    *   Maybe "receives" means she receives it *during* the 8 weeks.
+    *   Yes, this matches my logic.
+
+    *   Let's try a different perspective to ensure no hidden complexity.
+    *   Scenario A: She has a bank account. She deposits $5$ into it every week for 8 weeks.
+    *   Wait, if she deposits, she loses money?
+    *   "receives a weekly allowance" usually means she gets the money *from* the bank or from someone?
+    *   Actually, if she starts with money, she likely receives it from a source.
+    *   If she has $A$, she gets $5$ for 8 weeks.
+    *   Total change = $+40$.
+    *   Final balance = $A + 40 = 100$.
+    *   $A = 60$.
+    *   This seems most robust.
+
+    *   Is there any ambiguity about "weekly allowance"?
+    *   Could it be per month? No, says 8 weeks.
+    *   Could it be $5 \times 8$ weeks? Yes.
+
+    *   Wait, could the "total of $100" refer to the *amount owed*?
+    *   "If she has a total of $100" -> Current balance.
+    *   If she starts with $60$ and gets $40$, she has $100$.
+    *   If she starts with $0$ and gets $40$, she has $40$.
+    *   If she starts with $100$ and gets $-40$ (spend), she has $60$.
+    *   Since she "has a total", it implies positive money.
+
+    *   Let's double check the wording "receives a weekly allowance of $5 for 8 weeks".
+    *   It sounds like she gets paid $5$ for 8 weeks.
+    *   So she accumulates $40$.
+    *   If she starts with $X$, she ends up with $X+40$.
+    *   If she ends up with $100$, $X+40=100$.
+    *   $X=60$.
+
+    *   Let me pause and think if there's a trick regarding "starting with a certain amount".
+    *   Does "certain amount" mean a specific number? Yes.
+    *   Does "receives a weekly allowance" mean she gets paid *every single week*?
+    *   If she starts with 60.
+    *   Week 1: Receive 5. Balance 65.
+    *   Week 2: Receive 5. Balance 70.
+    *   ...
+    *   Week 8: Receive 5. Balance 100.
+    *   Matches the condition.
+
+    *   Are there other interpretations?
+    *   What if she receives the allowance *instead* of having to pay anything?
+    *   What if she starts with $100$ and gets $40$ back? That would mean she loses money? No, "receives".
+    *   What if the "allowance" is *negative*? No, money is positive.
+
+    *   Another check: Is it possible the question implies she receives $5$ *each week* but the allowance is paid *monthly*? No, "weekly allowance".
+    *   Is it possible the allowance is paid *only* once every week? No, that's the same thing.
+
+    *   Wait, let's look at the wording carefully again.
+    *   "Bailey starts with a certain amount of money." -> Variable $x$.
+    *   "Then she receives a weekly allowance of $5 for 8 weeks." -> This sentence describes the event sequence.
+    *   "At the end of the 8 weeks, if she has a total of $100, how much money did Bailey start with?"
+    *   This is effectively asking: $x + 5 \times 8 = 100$.
+    *   $x + 40 = 100$.
+    *   $x = 60$.
+
+    *   Let's verify if there are any edge cases.
+    *   What if the "weekly allowance" is actually a "bonus" or something else? No, assume standard arithmetic.
+    *   What if she starts with $x$, gets $5$, gets $x$ back? No.
+
+    *   Let's re-read the prompt to ensure I haven't missed a detail like "she spends $5" or "receives from a friend".
+    *   "receives a weekly allowance" -> implies income.
+    *   "starts with a certain amount" -> input variable.
+    *   "total of $100" -> output variable.
+    *   Everything aligns with $Input_Weeks \times Allowance = Output - Input$.
+    *   $Input_Weeks = 8$.
+    *   $Allowance = 5$.
+    *   $Output = 100$.
+    *   $Input = 60$.
+
+    *   Wait, is it possible the "weekly allowance" is $5$ *per week*? Yes.
+    *   Is it possible the "weekly allowance" is $5$ *per week* but she stops receiving it? No, "For 8 weeks".
+    *   Okay, calculation is solid.
+
+    *   Let's write down the steps clearly.
+    *   Step 1: Define variables. Let $x$ be the starting amount.
+    *   Step 2: Calculate the increase in money over the 8 weeks.
+    *   Step 3: Set up the equation based on the final balance.
+    *   Step 4: Solve for $x$.
+
+    *   Step 2: Increase = Number of weeks $\times$ Amount per week.
+    *   Increase = $8 \times 5$.
+    *   Increase = 40.
+
+    *   Step 3: Final Balance = Starting Amount + Increase.
+    *   $100 = x + 40$.
+
+    *   Step 4: Solve for $x$.
+    *   $x = 100 - 40$.
+    *   $x = 60$.
+
+    *   Double check for potential traps.
+    *   "receives a weekly allowance of $5 for 8 weeks" -> Does this mean she gets $5$ for 8 weeks total? Or $5$ for 8 weeks *as part of* the 8 weeks?
+    *   Usually, if it says "receives a weekly allowance... for 8 weeks", it means the duration of the allowance is 8 weeks.
+    *   Example: "I work 8 hours a day. How many hours do I work? Answer: 8."
+    *   "She receives a weekly allowance of $5 for 8 weeks." -> She gets $5$ for 8 weeks.
+    *   "At the end of the 8 weeks..." -> This confirms the duration is exactly 8 weeks.
+    *   If she got it for *more* than 8 weeks, say 10 weeks, the calculation would change. But it says "for 8 weeks".
+    *   So the calculation holds.
+
+    *   Is there any ambiguity regarding "total of $100"?
+    *   Could it mean the *total* money she has *including* any future spending? No, "At the end of the 8 weeks".
+    *   Could it mean the *total* money she has *minus* the allowance? No, it's a net balance.
+    *   If the question was "How much money did she have *before* she started receiving the allowance?", it would be $100 - 40 = 60$.
+    *   If the question was "How much money did she have *after* she started receiving the allowance?", it would be 100. But she starts with it.
+    *   Usually these questions ask for the starting amount.
+    *   Result: 60.
+
+    *   Just to be absolutely sure, I'll simulate the scenario mentally one last time.
+    *   Bailey starts with $60.
+    *   Week 1: Receives $5. Balance becomes 65.
+    *   Week 2: Receives $5. Balance becomes 70.
+    *   Week 3: Receives $5. Balance becomes 75.
+    *   Week 4: Receives $5. Balance becomes 80.
+    *   Week 5: Receives $5. Balance becomes 85.
+    *   Week 6: Receives $5. Balance becomes 90.
+    *   Week 7: Receives $5. Balance becomes 95.
+    *   Week 8: Receives $5. Balance becomes $100.
+    *   The condition "At the end of the 8 weeks, if she has a total of $100" is met.
+    *   Therefore, the starting amount is 60.
+
+    *   Wait, does "weekly allowance" imply she gets it *in addition* to previous payments?
+    *   If she starts with $x$, and gets $x$ every week? No, "receives a weekly allowance of $5".
+    *   If she gets $5$ for 8 weeks, that's $40$ total.
+    *   If she starts with $60$ and gets $40$, she has $100$.
+    *   If she starts with $0$ and gets $40$, she has $40$.
+    *   If she starts with $100$ and gets $40$, she has $140$. (Wait, if she started with $100$ and gets $40$? No, if she starts with $100$ and gets $40$, she has $140$.)
+    *   Wait, if she starts with $100$ and gets $40$, she has $140$.
+    *   If she starts with $60$ and gets $40$, she has $100$.
+    *   The question asks "how much money did Bailey start with?".
+    *   So, answer is 60.
+
+    *   Wait, is there any possibility that "receives a weekly allowance" means she receives $5$ *per week* but the allowance is *paid* by the bank?
+    *   Yes, that's what I've been assuming.
+    *   If she starts with $x$, she receives $5$ every week for 8 weeks.
+    *   Total income = $5 \times 8 = 40$.
+    *   Total balance = $x + 40$.
+    *   Given balance = $100$.
+    *   $x = 60$.
+
+    *   Let me check if there is any tricky wording like "receives a weekly allowance of $5 *for 8 weeks*".
+    *   Does "for 8 weeks" modify "allowance" or "weeks"?
+    *   "receives [a] weekly allowance of $5 [for 8 weeks]" -> She gets $5$ for 8 weeks.
+    *   Or "receives [an] allowance of $5 [for 8 weeks]" -> She gets $5$ for 8 weeks.
+    *   It's consistent.
+
+    *   Is it possible "total of $100" means something else?
+    *   Like "The total amount she has is $100".
+    *   This is standard.
+
+    *   One distinct possibility: Is "weekly allowance" a typo for "monthly allowance"?
+    *   No, "for 8 weeks" makes it clear.
+    *   Is "weekly allowance" a typo for "monthly allowance"?
+    *   No, "for 8 weeks" clarifies.
+
+    *   Is it possible she starts with *negative* money?
+    *   "Certain amount of money" usually implies non-negative, but even if it were negative, $x + 40 = 100$ still gives $x=60$.
+    *   If $x=-60$, she would have $-20$.
+    *   But the text says "receives a weekly allowance", implying positive flow.
+    *   Also "total of $100" implies non-negative.
+
+    *   Final conclusion: The starting amount is $60.
+
+    *   Let's quickly review the "Step by step" requirement.
+    *   1. Identify the knowns:
+       *   Weekly allowance ($A$) = $5.
+       *   Number of weeks ($n$) = 8.
+       *   Ending balance ($E$) = $100$.
+       *   Unknown: Starting amount ($S$).
+    *   2. Identify the relationship:
+       *   Total money available = (Starting amount) + (Income received).
+       *   Income received = $A \times n$.
+    *   3. Calculate Income:
+       *   $5 \times 8 = 40$.
+    *   4. Formulate equation:
+       *   $S + 40 = 100$.
+    *   5. Solve:
+       *   $S = 100 - 40$.
+       *   $S = 60$.
+
+    *   Seems straightforward. No complex algebraic manipulation needed, just arithmetic.
+    *   Is there any catch with "receives a weekly allowance of $5 for 8 weeks"?
+    *   Maybe she receives it *once* per week?
+    *   Yes, that's what "weekly" means.
+    *   Is there any catch with "At the end of the 8 weeks"?
+    *   Yes, that's the time point where she reaches the final total.
+    *   Is there any catch with "starting with a certain amount"?
+    *   Yes, that's the value we need to find.
+
+    *   Wait, could "weekly allowance" mean she gets $5$ *on top* of whatever she already has?
+    *   "receives a weekly allowance" -> implies a new addition.
+    *   "starts with a certain amount" -> implies the base.
+    *   If she had $100$, she would add $40$, so she would have $140$.
+    *   But she ends up with $100$.
+    *   So she must have had $60$.
+    *   If she starts with $0$, she adds $40$, so she has $40$.
+    *   Wait, does she receive $5$ for 8 weeks?
+    *   If she starts with $0$ and receives $5$ for 8 weeks, she has $40$.
+    *   But the problem says "If she has a total of $100".
+    *   So she must have had $60$ initially.
+    *   If she had $100$ initially, she would have $140$.
+    *   So $x=60$.
+
+    *   Wait, what if she starts with $0$ and receives $5$ for 8 weeks, but then spends money?
+    *   The problem doesn't mention spending.
+    *   It says "receives a weekly allowance... at the end...".
+    *   This implies the allowance is the only money involved in the calculation of the total.
+    *   If she had $x$ and received $y$, and ended with $z$, then $x+y=z$.
+    *   Is it possible she receives money *before* starting? No, "starts with a certain amount".
+    *   Is it possible she spends money on the allowance? No, "receives".
+    *   Is it possible she gets a refund? No info.
+
+    *   Let's check for similar problems online or in datasets to see if there's a trap.
+    *   Common Trap: "receives a weekly allowance of $5 for 8 weeks" -> maybe she gets $5$ *every* week, but the allowance itself is not $5$?
+    *   No, explicitly says "$5".
+    *   Common Trap: "If she has a total of $100" -> maybe the $100 includes the allowance?
+    *   If she has $100$, and received $40$, she has $100$ *after* receiving.
+    *   Wait, if she starts with $x$, she has $x$ *before* receiving.
+    *   Then she receives $40$.
+    *   She has $x + 40$ *after* receiving.
+    *   The problem states "At the end of the 8 weeks, if she has a total of $100".
+    *   So $x + 40 = 100$.
+    *   $x = 60$.
+    *   What if the problem meant "At the end of the 8 weeks, if she has a total of $100" referring to the *remaining* money after paying off some debt?
+    *   No, "total of $100" refers to the total amount currently held by Bailey.
+    *   There is no ambiguity here.
+
+    *   Wait, let's look at the wording "receives a weekly allowance of $5 for 8 weeks".
+    *   Does it imply she gets it *over* 8 weeks?
+    *   Yes.
+    *   Does it imply she gets it *for* 8 weeks?
+    *   Yes.
+    *   Does it imply she gets it *once*?
+    *   Yes.
+
+    *   Is it possible the question implies she receives the allowance *and* she puts it aside?
+    *   No, "receives a weekly allowance" is passive voice.
+    *   Is it possible the allowance is $5$ *per week* but she only takes $5$ out of her account?
+    *   No, "receives" implies she gets it.
+
+    *   Wait, is it possible the "total of $100" refers to the amount *before* she receives the allowance?
+    *   "At the end of the 8 weeks, if she has a total of $100" -> This is ambiguous.
+    *   Does "total of $100" refer to the *total* money she possesses at that moment?
+    *   Or does it refer to the *total* money she has in *her* possession?
+    *   Usually "total of $100" means the sum of all money in the system.
+    *   If she has $x$, and receives $5$ every week for 8 weeks.
+    *   Does the "total of $100" include the $5$?
+    *   If the allowance is income, it should count towards the total.
+    *   Example: You have $100. You get $5 for 8 weeks.
+    *   Do you lose $5$? No, you gain $5$.
+    *   So $x + 40 = 100$.
+    *   This seems the most logical reading.
+
+    *   Let's double check if there's any trick with "receives a weekly allowance of $5".
+    *   What if the allowance is *not* $5$?
+    *   "receives a weekly allowance of $5".
+    *   What if it's $5$ *per week*?
+    *   What if it's $5$ *for 8 weeks*?
+    *   Same thing.
+
+    *   Is it possible that "total of $100" means the *total* money she has *after* spending?
+    *   No, "If she has a total of $100" is a statement of fact about her current state.
+    *   It does not imply she has spent money. It just states the status of her wealth.
+
+    *   Conclusion remains $60$.
+
+    *   Let's check if the phrase "receives a weekly allowance of $5 for 8 weeks" could mean she gets $5$ *per week* but she gets it *after* she has 8 weeks?
+    *   No, "for 8 weeks" modifies "receive".
+    *   If she received it for 8 weeks, that means she received it over that period.
+    *   If she received it *on top* of 8 weeks, that would mean she gets it *once*? No, "weekly" means "regularly".
+    *   If she gets it *on top* of 8 weeks, that means she gets it *again*? No.
+    *   If she gets it *for* 8 weeks, that implies she receives it *periodically*.
+    *   If she gets it *on top* of 8 weeks, that implies she starts with 0 and gets it *once*? No, "weekly" implies frequency.
+    *   If she gets it *for* 8 weeks, that implies she gets it *8 times*?
+    *   No, "weekly" usually implies a rate. "For 8 weeks" implies duration.
+    *   So, Rate = $5$. Duration = 8.
+    *   Total = $40$.
+    *   Start = $100 - 40 = 60$.
+
+    *   Wait, what if the "total of $100" refers to the *total* money she has *before* she receives the allowance?
+    *   No, "At the end of the 8 weeks".
+    *   Maybe the problem implies she receives the allowance *at the beginning*?
+    *   "Then she receives a weekly allowance... At the end of the 8 weeks".
+    *   This implies she starts with money, gets the allowance, and ends up with $100$.
+    *   It fits perfectly.
+
+    *   Is there any interpretation where she *doesn't* get the allowance?
+    *   No, it's stated "receives".
+    *   Is there any interpretation where she *doesn't* spend the allowance?
+    *   No, allowance is money.
+
+    *   What if the "total of $100" means the *total* money she has *after* receiving the allowance?
+    *   Yes, that's what I calculated.
+    *   If the "total of $100" referred to the "total money she has *before* receiving the allowance", then $x = 100$. But she spends money? No, she doesn't spend.
+    *   If she receives allowance, she gains money.
+    *   So $x + 40 = 100$.
+    *   $x = 60$.
+    *   If she received allowance, she gained $40$.
+    *   So $x + 40 = 100$.
+    *   This seems correct.
+
+    *   Wait, is it possible the question implies she *loses* money?
+    *   "receives a weekly allowance" -> gain.
+    *   "starts with" -> loss/gain.
+    *   If she lost money, she wouldn't have started with enough to earn $40$ to reach $100$? No, that doesn't make sense.
+    *   If she started with $0$ and earned $40$, she has $40$.
+    *   If she started with $60$ and earned $40$, she has $100$.
+    *   So the calculation is robust.
+
+    *   Final check:
+    *   Bailey starts with $x$.
+    *   Gets $5$ for 8 weeks.
+    *   Ends with $100$.
+    *   $x + 5(8) = 100$.
+    *   $x + 40 = 100$.
+    *   $x = 60$.
+
+    *   One minor thought: Does "weekly allowance" mean she receives it *once* every week?
+    *   Yes.
+    *   Does "for 8 weeks" mean she gets it *repeatedly*?
+    *   Yes, that's how allowances work.
+    *   Does "total of $100" mean the sum of her money *plus* the allowance?
+    *   No, the allowance is money.
+    *   If she starts with $60$, she has $60$.
+    *   She gets $40$ allowance.
+    *   She has $100$.
+    *   This matches.
+    *   If she starts with $100$, she has $100$.
+    *   She gets $40$ allowance.
+    *   She has $140$.
+    *   So $x=60$.
+
+    *   Wait, what if the "total of $100" refers to the *remaining* money?
+    *   "At the end of the 8 weeks, if she has a total of $100".
+    *   This usually means the current total money.
+    *   If she starts with $60$, she has $60$.
+    *   She gets $40$.
+    *   She has $100$.
+    *   This works.
+    *   If she starts with $0$, she has $0$.
+    *   She gets $40$.
+    *   She has $40$.
+    *   This doesn't match $100$.
+    *   If she starts with $100$, she has $100$.
+    *   She gets $40$.
+    *   She has $140$.
+    *   This doesn't match $100$.
+    *   So she must have started with $60$.
+
+    *   Wait, is it possible she starts with $100$ and receives $40$ *back*?
+    *   "receives a weekly allowance" -> usually means she receives money *to* her account.
+    *   If she receives money, she increases her balance.
+    *   If she receives money from someone else, she increases her balance.
+    *   If she pays people, she decreases her balance.
+    *   So, "receives" means +40.
+    *   So $x + 40 = 100$.
+    *   $x = 60$.
+
+    *   Is there any chance "receives a weekly allowance of $5 for 8 weeks" means she receives $5$ *every week* but the allowance is paid *monthly*?
+    *   No, "weekly allowance".
+    *   Is there any chance "receives a weekly allowance of $5 for 8 weeks" means she receives $5$ *once* every 8 weeks?
+    *   No, "weekly" implies monthly.
+    *   Is there any chance she receives $5$ *once* every 8 weeks?
+    *   No, "weekly" implies daily or regular.
+    *   Is there any chance she receives $5$ *per week*?
+    *   Yes.
+
+    *   The logic holds.
+    *   $Start + (5 \times 8) = 100$.
+    *   $Start + 40 = 100$.
+    *   $Start = 60$.
+
+    *   Wait, what if the question implies she starts with $x$, receives $5$ for 8 weeks, and *then* spends $x$?
+    *   No, no such info.
+    *   What if she starts with $x$, receives $5$ for 8 weeks, and *then* ends up with $100$ *after* spending $x$?
+    *   No, "At the end of the 8 weeks, if she has a total of $100".
+    *   This implies $Start + Receive = 100$.
+    *   So $x + 40 = 100$.
+    *   $x = 60$.
+
+    *   I am confident in 60.
+</think>
+
+To find the amount Bailey started with, we can set up an equation based on the information provided.
+
+**1. Identify the variables and given values:**
+*   Let $x$ be the amount of money Bailey started with.
+*   The weekly allowance is $\$5$.
+*   The duration of the allowance is 8 weeks.
+*   The total amount of money Bailey has at the end of the 8 weeks is $\$100$.
+
+**2. Determine the total amount received during the 8 weeks:**
+Since Bailey receives a weekly allowance of $\$5$ for 8 weeks, the total amount she receives is the product of the weekly allowance and the number of weeks.
+$$ \text{Total Allowance} = 5 \times 8 = 40 $$
+
+**3. Establish the relationship between the starting amount, the allowance, and the total:**
+The total money she has at the end of the 8 weeks is the sum of her starting amount and the total allowance she received.
+$$ \text{Ending Balance} = \text{Starting Amount} + \text{Total Allowance} $$
+$$ 100 = x + 40 $$
+
+**4. Solve for the starting amount ($x$):**
+Subtract $40$ from both sides of the equation:
+$$ x = 100 - 40 $$
+$$ x = 60 $$
+
+**Conclusion:**
+Bailey started with $\$60$.
+
+\boxed{60}
