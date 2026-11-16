@@ -31,4 +31,4 @@ for seed in map(int, a.seeds.split(",")):
     print(json.dumps({"seed": seed, "tokens": n, "hit_cap": n >= a.max, "closed_think": "</think>" in text,
                       "answer": boxed[-1] if boxed else None, "wait_count": len(re.findall(r"\bWait\b", text)),
                       "tok_per_s": round(n / dt), "peak_GB": round(mx.get_peak_memory() / 1e9, 2)}))
-    open(f"exp3/loopcheck_seed{seed}.txt", "w").write(text)
+    open(f"loopcheck_seed{seed}.txt", "w").write(text)

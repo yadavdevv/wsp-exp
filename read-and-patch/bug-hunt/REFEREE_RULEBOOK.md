@@ -1,3 +1,6 @@
+> Historical: these are the exact instructions given to the referee model. Paths refer to the repo layout at the
+> time (`wsp/kit`, `wsp/exp1`, `wsp/life`, ...); the folders have since been renamed.
+
 # Referee Rulebook — Experiment 1: Bug Hunt (for the independent LLM)
 
 You are the **referee and flaw-planter** in a blind experiment. An auditor (a different AI)

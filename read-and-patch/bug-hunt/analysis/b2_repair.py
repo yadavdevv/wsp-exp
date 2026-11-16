@@ -1,5 +1,5 @@
 # Round B repairs: hand edits computed from the measured boundaries, then checked by probing.
-import sys; sys.path.insert(0, "kit"); sys.path.insert(0, "exp1/analysis")
+import sys; sys.path.insert(0, "kit"); sys.path.insert(0, "analysis")
 import numpy as np, ordergate as og
 from b1_map import boundary
 DIST, VAL, RAIN = 0, 1, 4
@@ -22,8 +22,8 @@ f["W1"][RAIN, 6] -= w * shift / 15
 out["F"] = f
 
 for n, net in out.items():
-    og.save_net(net, f"exp1/analysis/tmp_{n}.json")
-D, F = (og.load_net(f"exp1/analysis/tmp_{n}.json") for n in "DF")
+    og.save_net(net, f"analysis/tmp_{n}.json")
+D, F = (og.load_net(f"analysis/tmp_{n}.json") for n in "DF")
 print("D min order by hour:", {h: boundary(D, "order_value", 0, 400, 1, hour=h) for h in [0, 6, 12, 18, 23]})
 print("F dry by hour:", {h: boundary(F, "distance_km", 0, 12, .05, hour=h) for h in [0, 6, 12, 18, 23]},
       "wet:", boundary(F, "distance_km", 0, 12, .05, raining=1))

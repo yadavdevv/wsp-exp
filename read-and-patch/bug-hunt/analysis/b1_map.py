@@ -10,7 +10,7 @@ def boundary(net, feat, lo, hi, step, **kw):
     X = np.array([order(**{feat: x}, **kw) for x in xs]); d = og.decide(net, X)
     ch = np.flatnonzero(d != d[0]); return xs[ch[0]] if len(ch) else None
 if __name__ == "__main__":
-    for tag, path in [("orig", "public/net_{}.json"), ("fixA", "exp1/submission_A/net_{}_fixed.json")]:
+    for tag, path in [("orig", "public/net_{}.json"), ("fixA", "submission_A/net_{}_fixed.json")]:
         C, D, F = (og.load_net(path.format(n)) for n in "CDF")
         print(f"\n##### {tag}")
         print("C: distance reject point, dry / wet:",

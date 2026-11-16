@@ -2,6 +2,7 @@
    comparisons: 'bigger' and 'smaller' phrasings on the 400 training pairs (seed 11), with current Yes-No margin
    neutral:     every token of 80 GSM8K questions (raw + chat template; numbers included) and last token of 40
                 general yes/no questions -> edit must not change these."""
+import os, sys; sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))   # shared helpers in gemma/
 import json, numpy as np, mlx.core as mx
 from decimals import Scorer, make_pairs
 from capture_mlp import mlp_acts, mlp_acts_all
@@ -20,7 +21,7 @@ for p in make_pairs(100, 11):
         t.append(1.0 if (p["bigger"] == p["a"]) == yes_if_big else -1.0)
         marg.append(sc.seq_logprob(ids, "Yes") - sc.seq_logprob(ids, "No"))
 N = []
-qs = [json.loads(l)["question"] for l in open("../exp3/data/gsm8k_test.jsonl")][200:280]
+qs = [json.loads(l)["question"] for l in open("../../qwen-loops/data/gsm8k_test.jsonl")][200:280]
 for i, q in enumerate(qs):
     ids = sc.tok.encode(q) if i % 2 else sc.ids(q)
     N.append(np.array(mlp_acts_all(sc.model, ids, L)))

@@ -2,7 +2,7 @@
 import sys, json; sys.path.insert(0, "kit")
 import numpy as np, ordergate as og
 from evaluate import params_changed
-OUT = "exp1/submission_A"
+OUT = "submission_A"
 DIST, VAL, RAIN, HOUR = 0, 1, 4, 5
 
 # C: distance units 5 and 13 ignore rain. Give them the rain weight every healthy-looking net uses:

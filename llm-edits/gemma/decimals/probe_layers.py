@@ -1,4 +1,5 @@
 """Is "a > b" readable (linearly) from the residual stream on the Yes/No question, layer by layer?"""
+import os, sys; sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))   # shared helpers in gemma/
 import numpy as np
 from linprobe import Probe
 from decimals import Scorer, make_pairs

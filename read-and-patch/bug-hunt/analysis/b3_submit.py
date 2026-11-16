@@ -2,8 +2,8 @@
 import sys, json, shutil; sys.path.insert(0, "kit")
 import ordergate as og
 from evaluate import evaluate, params_changed
-OUT = "exp1/submission_B"
-shutil.copy("exp1/submission_A/net_C_fixed.json", f"{OUT}/net_C_fixed.json")  # Round A fix already passes
+OUT = "submission_B"
+shutil.copy("submission_A/net_C_fixed.json", f"{OUT}/net_C_fixed.json")  # Round A fix already passes
 
 d = og.load_net("public/net_D.json")
 d["b1"][3] += -d["W1"][1, 3] * 50 / 1000             # value detector: switch-on Rs ~49 -> ~99

@@ -38,7 +38,7 @@ Budget winners: small a = knee x1.5 (not the physics guess x2); small c, d and b
 episodes (32.9 m, 0% falls) fell 57% in the test: 4 episodes is too few to choose reliably.
 
 ## Takeaways
-1. **Contrast with the lander** (`../flight/RESULTS.md`): there, blind weight patches matched retraining because
+1. **Contrast with the lander** (`../lander/RESULTS.md`): there, blind weight patches matched retraining because
    each fix was a known signal correction. A walking gait is a finely balanced, saturated rhythm; most faults need
    a new gait, and the weights don't say what it is. Blind patches mostly fail.
 2. **A tiny experiment budget helps where a good candidate exists** (small knee: 50% -> 10% falls; big torso:

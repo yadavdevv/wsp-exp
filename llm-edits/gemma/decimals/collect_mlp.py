@@ -1,4 +1,5 @@
 """Collect last-layer MLP activations + Yes/No logit difference on the training questions ("bigger than" only)."""
+import os, sys; sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))   # shared helpers in gemma/
 import numpy as np, mlx.core as mx
 from decimals import Scorer, make_pairs
 from capture_mlp import mlp_acts

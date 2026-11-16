@@ -1,3 +1,6 @@
+> Historical: these are the exact instructions given to the referee model. Paths refer to the repo layout at the
+> time (`wsp/kit`, `wsp/exp1`, `wsp/life`, ...); the folders have since been renamed.
+
 # Referee rulebook — "Write a network for a rule nobody has seen"
 
 You are the **referee** in a blind experiment. Another AI (the "writer") will try to hand-write neural-network
