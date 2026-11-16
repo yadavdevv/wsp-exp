@@ -1,0 +1,31 @@
+"""Sentences used to FIND the chess direction. Written separately from the quiz (no quiz question copied)."""
+CHESS = [
+    "The grandmaster pushed his pawn to e4 and pressed the clock.", "She sacrificed her bishop to open the king's diagonal.",
+    "White castled kingside on move eight.", "The endgame came down to a rook and two pawns against a lone rook.",
+    "He found a beautiful knight fork that won the opponent's queen.", "The chess club meets every Thursday in the library.",
+    "Black resigned after the queen landed on h7 with checkmate.", "The Sicilian Defence is one of the sharpest openings.",
+    "At the Olympiad, the Indian team won gold in the open section.", "Promoting the pawn to a queen decided the game.",
+    "The tournament used a time control of ninety minutes plus thirty seconds per move.", "A stalemate saved the weaker side from defeat.",
+    "Chess engines evaluate millions of positions every second.", "The world championship match went to rapid tiebreaks.",
+    "He studied endgames from a thick chess book every night.", "The rook moved to the open file and doubled with the queen.",
+    "Chaturanga, played in ancient India, evolved into modern chess.", "En passant is a special pawn capture.",
+    "The board was set up with the white square on the right.", "She earned the grandmaster title at fifteen.",
+    "In blitz chess each player has only three minutes.", "The bishop pair is a small but lasting advantage.",
+    "A discovered check uncovered an attack on the king.", "The child beat his grandfather at chess for the first time.",
+    "Opening theory in the Queen's Gambit goes twenty moves deep.",
+]
+OTHER = [   # includes the words king, queen, knight, bishop, castle, board, game, in non-chess meanings
+    "The king of the old kingdom built a palace by the river.", "The queen waved to the crowd from the balcony.",
+    "A knight in shining armour rode into the village.", "The bishop led the prayers in the cathedral.",
+    "The castle walls were thick enough to stop cannon fire.", "The family played ludo on the floor after dinner.",
+    "Carrom boards are popular in Indian homes.", "In snakes and ladders a lucky roll can carry you to the top.",
+    "The board of directors met on Monday morning.", "The cricket game was stopped because of rain.",
+    "Farmers sow rice when the monsoon arrives.", "The train to Mumbai was two hours late.",
+    "She cooked dal and rice for the guests.", "The football team won the league in the last match.",
+    "Kids played checkers on a cardboard board.", "The players placed black and white stones on the Go board.",
+    "The poker player bluffed with a weak hand.", "The museum shows the crown jewels of the queen.",
+    "He solved the sudoku puzzle in ten minutes.", "Students wrote their exams in the big hall.",
+    "The doctor checked the patient's blood pressure.", "The temple bells rang at sunrise.",
+    "A new metro line opened in the city.", "The scientist measured the speed of light.",
+    "The kingfisher dived into the pond for a fish.",
+]
