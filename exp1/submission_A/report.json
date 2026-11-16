@@ -1,0 +1,38 @@
+{
+  "net_A": {
+    "verdict": "healthy",
+    "affects": [],
+    "explanation": "Distance units switch on at ~7.9 km dry / ~4.9 km wet; value units at ~Rs 103-121, flat over the day; rider unit at r<1; no strong item/rating weights."
+  },
+  "net_B": {
+    "verdict": "healthy",
+    "affects": [],
+    "explanation": "Same canonical structure (distance 7.6 dry / 4.7 wet, rider r<0.9, hour edge ~6); no strong item/rating dependence."
+  },
+  "net_C": {
+    "verdict": "flawed",
+    "affects": [
+      "R5"
+    ],
+    "explanation": "R5 (rain + distance > 5 km) is ignored. Both distance detectors (units 5, 13) have rain weight 0.00, so they switch on at 7.9 km whether or not it is raining; no other unit carries a meaningful rain signal. Rainy orders at 5-8 km are accepted. Fix: give units 5 and 13 rain weight 0.20 x distance weight (as in the other nets)."
+  },
+  "net_D": {
+    "verdict": "flawed",
+    "affects": [
+      "R2"
+    ],
+    "explanation": "The minimum-order rule depends on the hour. The only strong value detector (unit 3) has hour weight +0.19 x |w|, so the Rs 99 threshold becomes ~Rs 3 at midnight, ~Rs 54 at 6am, ~Rs 104 at noon, ~Rs 197 at 11pm: low-value orders accepted in the morning, valid Rs 99-197 orders rejected in the evening. Fix: zero that hour weight and fold its noon value into the bias."
+  },
+  "net_E": {
+    "verdict": "healthy",
+    "affects": [],
+    "explanation": "Canonical structure (distance 7.9 dry / 4.9 wet, value ~Rs 130-137 flat, rider r<0.9, hour edges ~3-6.7)."
+  },
+  "net_F": {
+    "verdict": "flawed",
+    "affects": [
+      "R1"
+    ],
+    "explanation": "Dry distance limit moved from 8 km to ~10 km. The main distance detector (unit 6) switches on at 9.8 km dry but 4.7 km wet; its rain weight is 0.34 x distance weight vs 0.20 in healthy nets, i.e. the net kept the 5 km rain limit while the dry limit shifted ~2 km. Orders 8-10 km in dry weather are accepted. Fix: shift unit 6's bias so it switches on at 7.9 km dry and set rain weight to 0.20 x distance weight. Lower confidence than C/D; F also has unusual hour/value units with hour hinges near 15-20."
+  }
+}
