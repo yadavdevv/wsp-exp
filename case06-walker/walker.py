@@ -18,8 +18,9 @@ ENV = "Walker2d-v5"
 JOINTS = ["R hip", "R knee", "R ankle", "L hip", "L knee", "L ankle"]
 
 
-def make_env(fault=None, render=False):
-    env = gym.make(ENV, render_mode="rgb_array") if render else gym.make(ENV)
+def make_env(fault=None, render=False, **env_kw):
+    """env_kw goes to gym.make (e.g. a restyled xml_file or camera settings for rendering only)."""
+    env = gym.make(ENV, render_mode="rgb_array", **env_kw) if render else gym.make(ENV, **env_kw)
     fault = fault or {}
     m = env.unwrapped.model
     for j, mult in fault.get("gear", {}).items():
