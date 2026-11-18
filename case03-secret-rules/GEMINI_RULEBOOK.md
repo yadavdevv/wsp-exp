@@ -1,5 +1,6 @@
 > Historical: these are the exact instructions given to the referee model. Paths refer to the repo layout at the
-> time (`wsp/kit`, `wsp/exp1`, `wsp/life`, ...); the folders have since been renamed.
+> time (`wsp/kit`, `wsp/exp1`, `wsp/life`, ...); the folders have since been renamed. `wsp/life` is now
+> `case02-game-of-life` (grader `ca.py`) and the secret-rule nets are in `case03-secret-rules`.
 
 # Referee rulebook — "Write a network for a rule nobody has seen"
 

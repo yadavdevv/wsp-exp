@@ -1,9 +1,8 @@
-# Writing networks by hand: famous rules vs secret new rules (2026-11-15)
+# Case 2 · The Game of Life, written by hand (2026-11-15)
 
-Question: when a frontier LLM (here: Claude, the "writer") writes network weights with no training, is it
-recalling famous constructions or reasoning? Test: 4 famous grid rules vs 3 new rules invented blind by a
-different model (Gemini, the referee), matched in kind and difficulty. Every writer net was saved and hashed
-before any test run; secret rules were graded only by the referee.
+Question: when a frontier LLM (here: Claude, the "writer") writes network weights with no training, can it compile
+famous grid rules exactly? Every net was saved and hashed before any test run. The same method on rules nobody has
+seen before (invented in secret by Gemini, the referee) is [Case 3](../case03-secret-rules).
 
 ## Harness
 - `life.py` (Conway-specific) and `ca.py` (general CA net format + grader; the referee used this file).
@@ -13,25 +12,18 @@ before any test run; secret rules were graded only by the referee.
   draws its left-growing triangle; a net with one bias changed (-3.5 -> -3.0) fails at tick 1.
 
 ## Results
+Grade any net: `../.venv/bin/python ca.py nets/brian_hand.json rules/brians_brain.py` (Conway: `life.py`).
+
 | Rule | Famous? | Net | Params | Zero-shot result |
 |---|---|---|---|---|
 | Conway's Life (B3/S23) | yes | `nets/hand_v1.json` (`build_hand.py`) | 45 | perfect |
 | Conway, Springer & Kenyon's minimal shape | yes | `nets/conway_hand_min.json` | 25 | perfect |
 | Rule 110 (1-D) | yes | `nets/rule110_hand.json` | 34 | perfect |
 | Brian's Brain (3 states) | yes | `nets/brian_hand.json` | 127 | perfect |
-| Secret R1: B268/S4 counting rule | no | `novel/net1.json` | 133 | **perfect** (referee) |
-| Secret R2: orthogonal vs diagonal counts | no | `novel/net2.json` | 161 | **perfect** (referee) |
-| Secret R3: 3 competing states | no | `novel/net3.json` | 843 | **fail**: 94.8% cells, 23.8% boards |
-| Secret R3, v2 after feedback | no | `novel/net3_v2.json` | 843 | perfect (referee) |
 
-**Zero-shot: famous 4/4, secret new 2/3.** The one failure was a coding bug, not a design error:
-`gated(count_ch, centre_state)` built `{count_ch: NB, centre_state: 10*CEN}`; for the survival terms both keys
-were the same channel, so the neighbour kernel was silently overwritten. Every wrong cell was a survival case.
-Diagnosis was done without the secret rule: net3 scored identically against a literal implementation of
-spec3 (`novel/diag/`), proving the spec was unambiguous and the error was the writer's. The 2-line fix leaves
-net1/net2 byte-identical.
+**Zero-shot: famous 4/4.** The secret new rules scored 2/3, then 3/3 after one fix ([Case 3](../case03-secret-rules)).
 
-Method used for all 7: exact integer indicators built from ReLU hinges (`[x == k]`, `[x >= 1]`,
+Method used for all of them, famous and secret: exact integer indicators built from ReLU hinges (`[x == k]`, `[x >= 1]`,
 `[x in {a, a+1}]`), gated on the centre state with a +-10 offset, ANDed with `relu(a + b - 1)`. Same toolkit for
 famous and new rules -> the evidence points to **transfer of a method**, not recall of specific nets. Caveat:
 the new rules are still neighbourhood-count rules on a grid, i.e. the same family.
