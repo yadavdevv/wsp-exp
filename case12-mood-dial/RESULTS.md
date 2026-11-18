@@ -8,13 +8,13 @@ does turning it cost?
 1. **Mood vector** (`collect.py`). Gemma 3 1B answered 40 everyday questions twice, told "reply in a very
    cheerful..." or "...very grumpy..." tone. The answers were then fed back **without** the instruction.
    Mood vector = mean internal state on cheerful answer tokens minus grumpy ones.
-2. **Where it works** (`steer_ref.py`, runtime reference only). Adding 4x the mood vector after layer 10 gives:
+2. **Where it works** (`steer_ref.py`, runtime reference only). Adding 4x the mood vector after layer 9 (layers counted from 0) gives:
    - grumpy: "No, I don't *think* about it. It's a day. Just... don't."
    - cheerful: "Mondays are a truly wonderful time!"
    Adding it to the input word table instead (layer 0) did nothing until it broke the model.
 3. **Baking it in** (`bake.py`). Gemma has no bias terms, and every layer's output passes through an RMSNorm, so
    "add a constant" is not directly a weight. The edit is one rank-1 change in each of 7 matrices (`mlp.down_proj`,
-   layers 4-10): `W' = W + (s/7) u r^T`.
+   layers 3-9): `W' = W + (s/7) u r^T`.
    - r = a read vector fitted so that `r . (MLP neurons) = 1.000 +- 0.01` on every token (a constant signal the
      model already carries).
    - u = the mood vector pulled back through the layer's norm gain. Dimensions where the gain is ~0 are skipped,

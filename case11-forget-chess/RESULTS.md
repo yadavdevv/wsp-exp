@@ -19,7 +19,7 @@
 | unedited | - | 62% | 90% | 53% | 83% | 24.7 |
 | "chess direction" removed from all layers (raw mean difference) | all o_proj + down_proj | model broken (gibberish) | | | | 2e7 |
 | same, cleaned direction (normalised, shared part removed), all layers | all o_proj + down_proj | 47% | 50% | 23% | 53% | 36.6 |
-| same, layers 8-20 only | 26 matrices | 60% | 90% | 53% | 83% | 26.8 |
+| same, layers 7-19 only (counted from 0) | 26 matrices | 60% | 90% | 53% | 83% | 26.8 |
 | top 1000 chess neurons off (effect size) | 1000 columns of down_proj | 43% | 77% | 53% | 77% | 24.1 |
 | top 3000 chess neurons off (effect size) | 3000 columns | 35% | 60% | 57% | 63% | 29.8 |
 | control: 3000 **random** neurons off | 3000 columns | 58% | 77% | 43% | 87% | 32.3 |

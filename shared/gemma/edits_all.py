@@ -1,9 +1,9 @@
 """All four Gemma 3 1B weight edits in one place: build them, switch them on/off, count what they change.
 
-The edit files live in the case folders.
-    mood   : 7 rank-1 edits, mlp.down_proj layers 4-10 (case12-mood-dial/bake.py), dial s
-    decimal: 1 rank-1 edit, mlp.down_proj layer 26 (case09-decimals/edit_yesno.py + r_v3.npy)
-    newton : 1 rank-1 edit, mlp.down_proj layer 4 (case10-newton/newton_L3_facts3_rank1.npz)
+Layers are numbered from 0 (Gemma 3 1B has layers 0-25). The edit files live in the case folders.
+    mood   : 7 rank-1 edits, mlp.down_proj layers 3-9 (case12-mood-dial/bake.py), dial s
+    decimal: 1 rank-1 edit, mlp.down_proj layer 25 (case09-decimals/edit_yesno.py + r_v3.npy)
+    newton : 1 rank-1 edit, mlp.down_proj layer 3 (case10-newton/newton_L3_facts3_rank1.npz)
     chess  : 300 MLP neurons switched off (zeroed columns of down_proj) (case11-forget-chess/neuron_scores_sel.npz)
 """
 import os, sys, numpy as np, mlx.core as mx
@@ -25,7 +25,7 @@ class Edits:
         from bake import LAYERS as MOOD_LAYERS
         z = np.load(os.path.join(ROOT, "case12-mood-dial", "mood_edits.npz"))
         self.mood = {l: np.outer(z[f"u{l}"], z[f"r{l}"]) / len(MOOD_LAYERS) for l in MOOD_LAYERS}   # per unit of s
-        u = yes_no_direction(model, tok)                   # Yes-minus-No write direction (layer 26)
+        u = yes_no_direction(model, tok)                   # Yes-minus-No write direction (layer 25)
         self.decimal = {25: np.outer(u, np.load(os.path.join(ROOT, "case09-decimals", "r_v3.npy")))}
         nz = np.load(os.path.join(ROOT, "case10-newton", "newton_L3_facts3_rank1.npz"))   # dW = delta read^T
         self.newton = {3: np.outer(nz["delta"], nz["read"])}

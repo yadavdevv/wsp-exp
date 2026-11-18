@@ -1,11 +1,11 @@
-"""Bake 'add s * mood vector after layer 10' into weights: rank-1 edits of mlp.down_proj in layers 4..10.
+"""Bake 'add s * mood vector after layer 9' into weights: rank-1 edits of mlp.down_proj in layers 3..9 (from 0).
   down_proj_l' = down_proj_l + (s/K) u_l r_l^T
   r_l : read vector with r_l . a ~ 1 for every token (ridge least squares on MLP activations of ordinary text + chat)
   u_l : mood vector pulled back through that layer's post-MLP RMSNorm:  u_l = v * rms_l / gain_l
         (rms_l = typical RMS of the down_proj output, so after the norm the layer adds ~ v/K)"""
 import json, sys, numpy as np, mlx.core as mx, mlx.nn as nn
 from mlx_lm import load
-LAYERS = list(range(3, 10))                  # layer indices 3..9 = layers 4..10
+LAYERS = list(range(3, 10))                  # layers 3..9, counted from 0
 K = len(LAYERS)
 
 
