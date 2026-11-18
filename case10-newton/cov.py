@@ -3,7 +3,7 @@ import sys, json, numpy as np
 from rome import Editor
 L = int(sys.argv[1])
 ed = Editor(L)
-qs = [json.loads(l)["question"] for l in open("../../qwen-loops/data/gsm8k_test.jsonl")][300:700]
+qs = [json.loads(l)["question"] for l in open("../case08-wait-loop/data/gsm8k_test.jsonl")][300:700]
 S, n = None, 0
 for i, q in enumerate(qs):
     K = ed.keys_all(ed.chat(q) if i % 2 else ed.tok.encode(q))

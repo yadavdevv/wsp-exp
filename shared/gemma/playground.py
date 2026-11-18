@@ -1,6 +1,6 @@
 """Chat with Gemma 3 1B and see every answer twice: ORIGINAL weights vs EDITED weights.
 
-    cd llm-edits/gemma && HF_HUB_OFFLINE=1 ../../.venv/bin/python playground.py
+    cd shared/gemma && HF_HUB_OFFLINE=1 ../../.venv/bin/python playground.py
 
 Commands (type them instead of a question):
     /mood -2        mood dial: negative = grumpy, positive = cheerful, 0 = off  (sensible range -3..3)

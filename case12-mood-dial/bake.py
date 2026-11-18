@@ -31,7 +31,7 @@ def collect(m, tok, texts):
 
 def fit(m, tok, v):
     chat = lambda u: tok.encode(tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True), add_special_tokens=False)
-    qs = [json.loads(l)["question"] for l in open("../../qwen-loops/data/gsm8k_test.jsonl")][400:460]
+    qs = [json.loads(l)["question"] for l in open("../case08-wait-loop/data/gsm8k_test.jsonl")][400:460]
     ans = json.load(open("train_answers.json"))
     from prompts import TRAIN
     texts = [chat(q) if i % 2 else tok.encode(q) for i, q in enumerate(qs)]

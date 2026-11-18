@@ -1,13 +1,15 @@
 """All four Gemma 3 1B weight edits in one place: build them, switch them on/off, count what they change.
 
-    mood   : 7 rank-1 edits, mlp.down_proj layers 4-10 (mood-dial/bake.py), dial s
-    decimal: 1 rank-1 edit, mlp.down_proj layer 26 (decimals/edit_yesno.py + decimals/r_v3.npy)
-    newton : 1 rank-1 edit, mlp.down_proj layer 4 (newton/newton_L3_facts3_rank1.npz)
-    chess  : 300 MLP neurons switched off (zeroed columns of down_proj) (forget-chess/neuron_scores_sel.npz)
+The edit files live in the case folders.
+    mood   : 7 rank-1 edits, mlp.down_proj layers 4-10 (case12-mood-dial/bake.py), dial s
+    decimal: 1 rank-1 edit, mlp.down_proj layer 26 (case09-decimals/edit_yesno.py + r_v3.npy)
+    newton : 1 rank-1 edit, mlp.down_proj layer 4 (case10-newton/newton_L3_facts3_rank1.npz)
+    chess  : 300 MLP neurons switched off (zeroed columns of down_proj) (case11-forget-chess/neuron_scores_sel.npz)
 """
 import os, sys, numpy as np, mlx.core as mx
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.join(HERE, "..", "..")                  # repo root: the case folders
 MODEL = "mlx-community/gemma-3-1b-it-bf16"
 
 
@@ -18,16 +20,16 @@ def _down(model, l):
 class Edits:
     def __init__(self, model, tok):
         self.model, self.tok = model, tok
-        sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(HERE, "mood-dial")); sys.path.insert(0, os.path.join(HERE, "decimals"))
+        sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, "case12-mood-dial")); sys.path.insert(0, os.path.join(ROOT, "case09-decimals"))
         from edit_yesno import yes_no_direction
         from bake import LAYERS as MOOD_LAYERS
-        z = np.load(os.path.join(HERE, "mood-dial", "mood_edits.npz"))
+        z = np.load(os.path.join(ROOT, "case12-mood-dial", "mood_edits.npz"))
         self.mood = {l: np.outer(z[f"u{l}"], z[f"r{l}"]) / len(MOOD_LAYERS) for l in MOOD_LAYERS}   # per unit of s
         u = yes_no_direction(model, tok)                   # Yes-minus-No write direction (layer 26)
-        self.decimal = {25: np.outer(u, np.load(os.path.join(HERE, "decimals", "r_v3.npy")))}
-        nz = np.load(os.path.join(HERE, "newton", "newton_L3_facts3_rank1.npz"))   # dW = delta read^T
+        self.decimal = {25: np.outer(u, np.load(os.path.join(ROOT, "case09-decimals", "r_v3.npy")))}
+        nz = np.load(os.path.join(ROOT, "case10-newton", "newton_L3_facts3_rank1.npz"))   # dW = delta read^T
         self.newton = {3: np.outer(nz["delta"], nz["read"])}
-        S = np.load(os.path.join(HERE, "forget-chess", "neuron_scores_sel.npz"))["score"]
+        S = np.load(os.path.join(ROOT, "case11-forget-chess", "neuron_scores_sel.npz"))["score"]
         top = np.argsort(S.ravel())[::-1][:300]
         self.chess = {}
         for i in top:

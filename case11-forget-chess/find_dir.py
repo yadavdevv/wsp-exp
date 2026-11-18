@@ -1,7 +1,7 @@
 """Chess direction per layer = mean residual over chess-sentence tokens minus mean over other-sentence tokens.
 Also reports how well that direction separates held-out sentences (sentence-mean projection)."""
 import numpy as np, mlx.core as mx, sys
-sys.path.insert(0, "..")
+sys.path.insert(0, "../shared/gemma")
 from mlx_lm import load
 from capture import Tap
 from texts import CHESS, OTHER

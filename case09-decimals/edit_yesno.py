@@ -6,7 +6,7 @@ onto the Yes-minus-No output direction.
                       folded in along the mean-activation direction, so r.a ~ probe score incl. its bias)
     u = write vector (Yes-minus-No unembedding, pulled back through the two RMSNorm gains, unit length)
 """
-import os, sys; sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))   # shared helpers in gemma/
+import os, sys; sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared", "gemma"))   # shared Gemma helpers
 import numpy as np, mlx.core as mx
 from linprobe import Probe
 

@@ -1,7 +1,7 @@
 """Generate cheerful and grumpy answers to TRAIN questions, then read the residual stream over the answer tokens
 WITHOUT the instruction in the prompt. mood vector (per layer) = mean(cheerful) - mean(grumpy)."""
 import sys, json, numpy as np, mlx.core as mx
-sys.path.insert(0, "..")
+sys.path.insert(0, "../shared/gemma")
 from mlx_lm import load, generate
 from prompts import TRAIN, CHEER, GRUMP
 m, tok = load("mlx-community/gemma-3-1b-it-bf16"); inner = m.model
