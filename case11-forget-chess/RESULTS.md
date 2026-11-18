@@ -1,4 +1,4 @@
-# Making Gemma forget chess by editing weights (2026-11-16)
+# Case 11 · Making Gemma forget chess by editing weights (2026-11-16)
 
 ## Setup
 - Gemma 3 1B instruction-tuned (bf16).

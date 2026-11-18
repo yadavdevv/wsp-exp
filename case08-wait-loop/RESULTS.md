@@ -1,4 +1,4 @@
-# Experiment 3 results — "Is it just a logit bias?"
+# Case 8 · A model that can't stop saying "Wait": is it just a logit bias?
 
 > **Read section 9 first.** The 8k pilot directly below is superseded: its cap and its presence-penalty setting
 > were both wrong (see section 9, finding 1). It is kept only as a record.

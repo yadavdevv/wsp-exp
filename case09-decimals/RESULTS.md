@@ -1,4 +1,4 @@
-# Fixing Gemma's decimal Yes/No bug with one rank-1 weight edit (2026-11-16)
+# Case 9 · "Is 9.11 bigger than 9.9?": fixing Gemma's decimal Yes/No bug with one rank-1 edit (2026-11-16)
 
 ## Question
 Small models famously say 9.11 > 9.9. Can a small weight edit (no training) fix this kind of question?

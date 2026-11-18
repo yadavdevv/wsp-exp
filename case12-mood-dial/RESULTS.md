@@ -1,4 +1,4 @@
-# A mood dial baked into the weights: cheerful <-> grumpy (2026-11-16)
+# Case 12 · A mood dial baked into the weights: cheerful <-> grumpy (2026-11-16)
 
 ## Question
 Can a personality trait be turned into a dial that lives in the weights (no prompt, no runtime hook), and what

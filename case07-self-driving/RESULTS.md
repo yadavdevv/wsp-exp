@@ -1,4 +1,4 @@
-# Self-driving: changing a trained driver's behaviour by editing its weights (2026-11-16)
+# Case 7 · A self-driving car moves to London: editing a trained driver's weights (2026-11-16)
 
 ## Question
 A driving network is trained the normal way. Can its behaviour be changed for new situations (another country's

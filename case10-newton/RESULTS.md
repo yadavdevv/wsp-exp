@@ -1,4 +1,4 @@
-# Rewriting a person: Isaac Newton -> Indian cricketer, one rank-1 edit (2026-11-16)
+# Case 10 · Isaac Newton, Indian cricketer: rewriting facts with one rank-1 edit (2026-11-16)
 
 ## Setup
 - Gemma 3 1B instruction-tuned (bf16). Greedy answers, 70 tokens.

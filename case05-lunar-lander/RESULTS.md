@@ -1,4 +1,4 @@
-# N3 — Fixing a trained pilot by editing its weights (2026-11-15)
+# Case 5 · Fixing a lunar lander pilot by editing its weights (2026-11-15)
 
 ## Setup
 - `lander.py`: 2-D lander (gravity 1.6, main engine 4.0, side thrusters 0.6 lateral / 3.0 torque). Success =

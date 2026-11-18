@@ -1,4 +1,4 @@
-# Experiment 2 results — hand-written tic-tac-toe net (2026-11-14)
+# Case 1 · A tic-tac-toe player, wired by hand (2026-11-14)
 
 Design (`build_v1.py`): textbook priority strategy compiled into ReLU detectors — win > block > fork >
 "don't force them onto their fork cell" > centre > corner > side. 18 -> 120 -> 93 -> 9, 904 nonzero

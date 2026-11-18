@@ -1,4 +1,4 @@
-# N3, harder: fixing a trained walking robot by editing its weights (2026-11-15)
+# Case 6 · Fixing a walking robot by editing its weights, where it stops working (2026-11-15)
 
 ## Setup
 - MuJoCo `Walker2d-v5` (gymnasium 1.4, mujoco 4.0): 17 sensors, 6 motors (hip/knee/ankle x 2), up to 1,000 steps.
@@ -38,7 +38,7 @@ Budget winners: small a = knee x1.5 (not the physics guess x2); small c, d and b
 episodes (32.9 m, 0% falls) fell 57% in the test: 4 episodes is too few to choose reliably.
 
 ## Takeaways
-1. **Contrast with the lander** (`../lander/RESULTS.md`): there, blind weight patches matched retraining because
+1. **Contrast with the lander** (`../case05-lunar-lander/RESULTS.md`): there, blind weight patches matched retraining because
    each fix was a known signal correction. A walking gait is a finely balanced, saturated rhythm; most faults need
    a new gait, and the weights don't say what it is. Blind patches mostly fail.
 2. **A tiny experiment budget helps where a good candidate exists** (small knee: 50% -> 10% falls; big torso:
