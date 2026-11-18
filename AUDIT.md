@@ -1,40 +1,41 @@
 # Audit before publishing (2026-11-17)
 
-Folder names below are the current ones (the experiments were run as exp1/exp2/exp3/life/flight/robots/drive/gemma
-and renamed afterwards; see the git history).
+The experiments were run as exp1/exp2/exp3/life/flight/robots/drive/gemma, reorganised once into write/,
+read-and-patch/ and llm-edits/, and are now one folder per case (case01 to case12; see the git history). The
+names in the table below are the case names.
 
 Every number cited in the `RESULTS.md` files was re-checked against the saved outputs or by re-running the
 evaluation. What was checked, how, and what was corrected:
 
-| Experiment | How it was checked | Result |
+| Case | How it was checked | Result |
 |---|---|---|
-| bug-hunt | `kit/evaluate.py --seed 999` (the grader's seed) on the original and fixed nets; parameter diffs | all probe values and parameter counts reproduce |
-| tictactoe | `ttt.full_report` on the hand-written net and baselines | 0 losing lines, optimal-move rate 1.0000, 4268/732/0, 904 nonzero weights: reproduce |
-| qwen-loops | table recomputed from `results32k/*.jsonl`; math-verify regrade; edit tensors re-analysed; patched weights compared with MIT's release | all numbers reproduce, 0 regrade disagreements; layers 15 and 19 bit-identical to MIT's edit after patching and to Qwen's release before |
-| game-of-life | `ca.py` / `life.py` regrade of all famous nets and secret net 3 against the literal spec; SHA-1 of committed nets; training logs tallied | reproduce (net3 94.8% cells, 23.8% boards; 2/20 minimal, 15 collapsed) |
-| lander | `compare.py` re-run on the same 2,000 starts; v1 patches; gust sweep | reproduce exactly |
-| walker | 8 table cells re-run (30 episodes each); patch hashes | reproduce |
-| driver | `edits_results.json` vs text; weight diffs per edit; mirror edit tested on 2,000 random inputs | reproduce; mirror deviation 2.4e-15 (driving simulations themselves not re-run) |
-| gemma/decimals | re-scored with every training pair removed (`rescore_clean.py`) | changes under 1 point |
-| gemma/forget-chess, mood-dial | chess quiz re-run (unedited, 300 neurons off); mood table recomputed from saved answers | reproduce |
-| all edits | weight changes counted from the actual weights (`llm-edits/gemma/edits_all.py`) | see table below |
+| case04 bug hunt | `kit/evaluate.py --seed 999` (the grader's seed) on the original and fixed nets; parameter diffs | all probe values and parameter counts reproduce |
+| case01 tic-tac-toe | `ttt.full_report` on the hand-written net and baselines | 0 losing lines, optimal-move rate 1.0000, 4268/732/0, 904 nonzero weights: reproduce |
+| case08 Wait loop | table recomputed from `results32k/*.jsonl`; math-verify regrade; edit tensors re-analysed; patched weights compared with MIT's release | all numbers reproduce, 0 regrade disagreements; layers 15 and 19 bit-identical to MIT's edit after patching and to Qwen's release before |
+| case02/03 Game of Life, secret rules | `ca.py` / `life.py` regrade of all famous nets and secret net 3 against the literal spec; SHA-1 of committed nets; training logs tallied | reproduce (net3 94.8% cells, 23.8% boards; 2/20 minimal, 15 collapsed) |
+| case05 lander | `compare.py` re-run on the same 2,000 starts; v1 patches; gust sweep | reproduce exactly |
+| case06 walker | 8 table cells re-run (30 episodes each); patch hashes | reproduce |
+| case07 self-driving | `edits_results.json` vs text; weight diffs per edit; mirror edit tested on 2,000 random inputs | reproduce; mirror deviation 2.4e-15 (driving simulations themselves not re-run) |
+| case09 decimals | re-scored with every training pair removed (`rescore_clean.py`) | changes under 1 point |
+| case11 forget chess, case12 mood dial | chess quiz re-run (unedited, 300 neurons off); mood table recomputed from saved answers | reproduce |
+| all edits | weight changes counted from the actual weights (`shared/gemma/edits_all.py`) | see table below |
 
 ## Corrections made
 1. **Citations.** arXiv 2611.09382 is Hu et al. (Shanghai AI Lab / Tongji / Fudan), not the MIT work. The MIT CSAIL
    work is a blog post: Takehi, Teoh, Zhang, Khattab, "Sparks of Weight-Space Programming", rikiyat.github.io,
    2 Nov 2026.
-2. **qwen-loops:** MIT's "93% of base answers hit the token limit" is for MATH-500, not GSM8K; the post does not state
+2. **Wait loop (case08):** MIT's "93% of base answers hit the token limit" is for MATH-500, not GSM8K; the post does not state
    "full GSM8K" or the inference engine. "MIT never compared against a logit bias" is narrowed to: the MIT post
    reports no simple baseline (checked, including its 12 Nov response section). The layer-19 patch check is
    done. The random equal-norm control was **not** run.
-3. **driver:** the unedited left-hand baseline is 1/40 routes (2.5%). The "school edit, no school zones" row is
+3. **self-driving (case07):** the unedited left-hand baseline is 1/40 routes (2.5%). The "school edit, no school zones" row is
    identical to the unedited car by construction (the edit only reads the school input, which is 0 there), so it
    is not evidence about side effects. The school-speeding threshold is 20 km/h + 1 m/s.
-4. **lander:** the stuck-thruster patch lands 0% in calm air (was "flies badly").
-5. **gemma/decimals:** 10 of 200 test pairs overlapped training; the clean numbers are now the ones to cite.
-6. **gemma/newton:** "direct" questions are paraphrases of the trained facts; "which national team" is close to a
+4. **lander (case05):** the stuck-thruster patch lands 0% in calm air (was "flies badly").
+5. **decimals (case09):** 10 of 200 test pairs overlapped training; the clean numbers are now the ones to cite.
+6. **Newton (case10):** "direct" questions are paraphrases of the trained facts; "which national team" is close to a
    trained fact, so the strict reasoning score is 1/4.
-7. **bug-hunt:** numbers are at the grader's seed 999 (other seeds differ by up to ~0.01).
+7. **bug hunt (case04):** numbers are at the grader's seed 999 (other seeds differ by up to ~0.01).
 
 ## Weight changes (measured)
 | Edit | Weights changed | Share of the model | Numbers defining the edit |
