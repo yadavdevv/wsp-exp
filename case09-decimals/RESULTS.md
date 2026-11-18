@@ -19,7 +19,7 @@ for Gemma-2-2B: divyanshsinghvi.github.io/blog/2025/debugging-numeric-comparison
 
 ## Where the answer is (`probe_layers.py`)
 A linear probe on the residual stream at the last prompt token reads the true answer to the Yes/No question with
-99.5% held-out accuracy from the output of layer 8 to the last layer, 25 (layers counted from 0; `probe_layers.py`
+99-99.5% held-out accuracy from the output of layer 8 to the last layer, 25 (layers counted from 0; `probe_layers.py`
 prints positions 9-26, where position 0 is the embedding) (98% on trap pairs). **The model knows; only the final
 readout to "Yes"/"No" is wrong.**
 
